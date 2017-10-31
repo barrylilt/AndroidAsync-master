@@ -1,0 +1,24 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile project(':AndroidAsync')
+}
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            res.srcDirs = ['res/']
+            java.srcDirs = ['src/']
+        }
+    }
+
+    defaultConfig {
+        targetSdkVersion 24
+        minSdkVersion 9
+    }
+
+    compileSdkVersion project.hasProperty('global_compileSdkVersion') ? global_compileSdkVersion : 25
+    buildToolsVersion project.hasProperty('global_buildToolsVersion') ? global_buildToolsVersion : '25.0.2'
+}
+
